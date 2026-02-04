@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Hellen & Associates Company</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">Hellen <span>& Associates</span></a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>Let’s talk. Send us a message and we’ll respond quickly.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Office Location</h3>
+          <p>Nairobi, Kenya</p>
+          <br />
+          <h3>Email</h3>
+          <p>info@hellenassociates.co.ke</p>
+          <br />
+          <h3>Phone</h3>
+          <p>+254 700 000 000</p>
+        </div>
+
+        <div class="card" style="grid-column: span 2;">
+          <h3>Send a Message</h3>
+          <form>
+            <input type="text" placeholder="Full Name" required />
+            <input type="email" placeholder="Email Address" required />
+            <select required>
+              <option value="">Select Service</option>
+              <option>Corporate Tax Filing</option>
+              <option>Payroll Support</option>
+              <option>Accounting Support</option>
+              <option>eTIMS Support</option>
+              <option>Business Registration</option>
+              <option>Money Market Advisory</option>
+            </select>
+            <textarea placeholder="Your Message" required></textarea>
+            <button class="btn primary" type="submit">Send Message</button>
+          </form>
+          <p style="margin-top:10px; color: var(--gray); font-size: 13px;">
+            Note: This is a static form. To make it send emails, we can connect it using PHP or Google Forms.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Hellen & Associates Company</h3>
+        <p>
+          Reliable financial services for tax compliance, payroll support, accounting, business registration,
+          and investment advisory.
+        </p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="about.html">About</a></p>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <p>Nairobi, Kenya</p>
+        <p>Email: info@hellenassociates.co.ke</p>
+        <p>Phone: +254 700 000 000</p>
+      </div>
+    </div>
+
+    <div class="container copy">
+      © <span id="year"></span> Hellen & Associates Company. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
