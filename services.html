@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Hellen & Associates Company</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">Hellen <span>& Associates</span></a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>We offer professional financial services designed to reduce your workload and keep you compliant.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Corporate Tax Filing</h3>
+          <p>We handle preparation and filing of corporate tax returns, compliance review, and submission.</p>
+        </div>
+
+        <div class="card">
+          <h3>Payroll Support</h3>
+          <p>Payroll processing, PAYE computation, statutory deductions, and monthly reporting support.</p>
+        </div>
+
+        <div class="card">
+          <h3>Accounting Support</h3>
+          <p>Bookkeeping, reconciliations, financial statements preparation, and accounting advisory.</p>
+        </div>
+
+        <div class="card">
+          <h3>eTIMS Support</h3>
+          <p>Onboarding, setup, troubleshooting, compliance guidance, and training for staff.</p>
+        </div>
+
+        <div class="card">
+          <h3>Business Registration</h3>
+          <p>Company registration, KRA PIN updates, CR12 support, and compliance advisory.</p>
+        </div>
+
+        <div class="card">
+          <h3>Money Market Advisory</h3>
+          <p>Advisory on money market funds, savings strategies, and low-risk investment planning.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Hellen & Associates Company</h3>
+        <p>
+          Reliable financial services for tax compliance, payroll support, accounting, business registration,
+          and investment advisory.
+        </p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="about.html">About</a></p>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <p>Nairobi, Kenya</p>
+        <p>Email: info@hellenassociates.co.ke</p>
+        <p>Phone: +254 700 000 000</p>
+      </div>
+    </div>
+
+    <div class="container copy">
+      © <span id="year"></span> Hellen & Associates Company. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
