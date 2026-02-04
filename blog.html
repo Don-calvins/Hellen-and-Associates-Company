@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Hellen & Associates Company</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">Hellen <span>& Associates</span></a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Insights & Updates</h2>
+        <p>Tax tips, business compliance updates, and financial best practices.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>How to Prepare for Corporate Tax Filing</h3>
+          <p>Learn what documents you need and how to avoid common tax mistakes.</p>
+        </div>
+
+        <div class="card">
+          <h3>Payroll Compliance Checklist</h3>
+          <p>PAYE, NSSF, NHIF, and what every employer must submit monthly.</p>
+        </div>
+
+        <div class="card">
+          <h3>Understanding eTIMS for Businesses</h3>
+          <p>Everything you need to know about eTIMS onboarding and compliance.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Hellen & Associates Company</h3>
+        <p>
+          Reliable financial services for tax compliance, payroll support, accounting, business registration,
+          and investment advisory.
+        </p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="about.html">About</a></p>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <p>Nairobi, Kenya</p>
+        <p>Email: info@hellenassociates.co.ke</p>
+        <p>Phone: +254 700 000 000</p>
+      </div>
+    </div>
+
+    <div class="container copy">
+      © <span id="year"></span> Hellen & Associates Company. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
