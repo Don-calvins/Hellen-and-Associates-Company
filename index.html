@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hellen & Associates | Premier Tax & Investment Advisory Kenya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-montserrat bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-navy-900/95 backdrop-blur-md sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-gold-400">Hellen & Associates</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-white hover:text-gold-400">Home</a>
+                    <a href="#services" class="text-white hover:text-gold-400">Services</a>
+                    <a href="#about" class="text-white hover:text-gold-400">About</a>
+                    <a href="#insights" class="text-white hover:text-gold-400">Insights</a>
+                    <a href="#investors" class="text-white hover:text-gold-400">Investors</a>
+                    <a href="#contact" class="text-white hover:text-gold-400">Contact</a>
+                </div>
+                <button class="md:hidden text-white">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen bg-gradient-to-r from-navy-900 to-indigo-900 text-white flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                        Unlocking Kenya's<br>
+                        <span class="text-gold-400">Investment Potential</span>
+                    </h1>
+                    <p class="text-xl mb-8 opacity-90">Expert Tax Compliance, Payroll, Accounting & Money Market Advisory for Nairobi's Growth Leaders</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="bg-gold-400 text-navy-900 px-8 py-4 rounded-lg font-semibold hover:bg-gold-500 transition">Schedule Consultation</a>
+                        <a href="#services" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-navy-900 transition">View Services</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-gold-400/20 to-transparent rounded-3xl p-12 backdrop-blur-sm">
+                        <div class="grid grid-cols-3 gap-6 text-center">
+                            <div>
+                                <div class="text-3xl font-bold text-gold-400 mb-2">15+</div>
+                                <div class="text-sm opacity-75">Years Expertise</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-gold-400 mb-2">500+</div>
+                                <div class="text-sm opacity-75">Clients Served</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-gold-400 mb-2">30%</div>
+                                <div class="text-sm opacity-75">Avg Tax Savings</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-navy-900 mb-6">Comprehensive Financial Solutions</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">From eTIMS compliance to money market advisory, we handle your financial complexity.</p>
+            </div>
+            <div x-data="{ open: null }" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div @click="open = open === 1 ? null : 1" class="group cursor-pointer">
+                    <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-8 rounded-2xl hover:shadow-2xl transition-all group-hover:scale-105">
+                        <h3 class="text-2xl font-bold mb-4">Corporate Tax Filing</h3>
+                        <div x-show="open === 1" x-transition class="mt-4 text-lg">iTax & eTIMS compliance, quarterly/annual returns, audit representation.</div>
+                    </div>
+                </div>
+                <!-- Add more service cards similarly -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section id="contact" class="py-24 bg-gradient-to-r from-gold-400 to-amber-500 text-navy-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Finances?</h2>
+            <p class="text-xl mb-12 opacity-90">Nairobi Office: +254 700 123 456 | info@hellenassociates.co.ke</p>
+            <form class="max-w-md mx-auto space-y-4">
+                <input type="email" placeholder="Your Email" class="w-full p-4 rounded-xl text-navy-900">
+                <textarea placeholder="Tell us about your needs" class="w-full p-4 rounded-xl h-32 text-navy-900"></textarea>
+                <button type="submit" class="w-full bg-navy-900 text-gold-400 p-4 rounded-xl font-bold hover:bg-navy-800 transition">Get Free Consultation</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
