@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Hellen & Associates Company</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">Hellen <span>& Associates</span></a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Hellen & Associates</h2>
+        <p>Your trusted partner in tax compliance, accounting, payroll, and advisory.</p>
+      </div>
+
+      <div class="card">
+        <h3>Who We Are</h3>
+        <p>
+          Hellen & Associates Company is a professional financial services firm dedicated to helping businesses and individuals
+          manage tax reporting, payroll obligations, accounting records, and compliance requirements efficiently.
+        </p>
+        <br />
+
+        <h3>Our Mission</h3>
+        <p>
+          To deliver accurate, reliable, and client-focused financial solutions that help our clients remain compliant and grow sustainably.
+        </p>
+        <br />
+
+        <h3>Our Vision</h3>
+        <p>
+          To become a leading tax and accounting support firm known for excellence, integrity, and innovation.
+        </p>
+        <br />
+
+        <h3>Our Values</h3>
+        <p>✔ Integrity</p>
+        <p>✔ Professionalism</p>
+        <p>✔ Confidentiality</p>
+        <p>✔ Client Satisfaction</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Hellen & Associates Company</h3>
+        <p>
+          Reliable financial services for tax compliance, payroll support, accounting, business registration,
+          and investment advisory.
+        </p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="about.html">About</a></p>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <p>Nairobi, Kenya</p>
+        <p>Email: info@hellenassociates.co.ke</p>
+        <p>Phone: +254 700 000 000</p>
+      </div>
+    </div>
+
+    <div class="container copy">
+      © <span id="year"></span> Hellen & Associates Company. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
