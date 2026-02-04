@@ -1,114 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hellen & Associates | Premier Tax & Investment Advisory Kenya</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<link rel="manifest" href="manifest.json">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hellen & Associates Company | Tax, Payroll & Accounting Support</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="font-montserrat bg-gray-50 text-gray-900">
-    <!-- Navigation -->
-    <nav class="bg-navy-900/95 backdrop-blur-md sticky top-0 z-50 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="#" class="text-2xl font-bold text-gold-400">Hellen & Associates</a>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-white hover:text-gold-400">Home</a>
-                    <a href="#services" class="text-white hover:text-gold-400">Services</a>
-                    <a href="#about" class="text-white hover:text-gold-400">About</a>
-                    <a href="#insights" class="text-white hover:text-gold-400">Insights</a>
-                    <a href="#investors" class="text-white hover:text-gold-400">Investors</a>
-                    <a href="#contact" class="text-white hover:text-gold-400">Contact</a>
-                </div>
-                <button class="md:hidden text-white">☰</button>
-            </div>
-        </div>
-    </nav>
+<body>
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen bg-gradient-to-r from-navy-900 to-indigo-900 text-white flex items-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                        Unlocking Kenya's<br>
-                        <span class="text-gold-400">Investment Potential</span>
-                    </h1>
-                    <p class="text-xl mb-8 opacity-90">Expert Tax Compliance, Payroll, Accounting & Money Market Advisory for Nairobi's Growth Leaders</p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#contact" class="bg-gold-400 text-navy-900 px-8 py-4 rounded-lg font-semibold hover:bg-gold-500 transition">Schedule Consultation</a>
-                        <a href="#services" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-navy-900 transition">View Services</a>
-                    </div>
-                </div>
-                <div class="relative">
-                    <div class="bg-gradient-to-br from-gold-400/20 to-transparent rounded-3xl p-12 backdrop-blur-sm">
-                        <div class="grid grid-cols-3 gap-6 text-center">
-                            <div>
-                                <div class="text-3xl font-bold text-gold-400 mb-2">15+</div>
-                                <div class="text-sm opacity-75">Years Expertise</div>
-                            </div>
-                            <div>
-                                <div class="text-3xl font-bold text-gold-400 mb-2">500+</div>
-                                <div class="text-sm opacity-75">Clients Served</div>
-                            </div>
-                            <div>
-                                <div class="text-3xl font-bold text-gold-400 mb-2">30%</div>
-                                <div class="text-sm opacity-75">Avg Tax Savings</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">Hellen <span>& Associates</span></a>
 
-    <!-- Services Section -->
-    <section id="services" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl md:text-5xl font-bold text-navy-900 mb-6">Comprehensive Financial Solutions</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">From eTIMS compliance to money market advisory, we handle your financial complexity.</p>
-            </div>
-            <div x-data="{ open: null }" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div @click="open = open === 1 ? null : 1" class="group cursor-pointer">
-                    <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-8 rounded-2xl hover:shadow-2xl transition-all group-hover:scale-105">
-                        <h3 class="text-2xl font-bold mb-4">Corporate Tax Filing</h3>
-                        <div x-show="open === 1" x-transition class="mt-4 text-lg">iTax & eTIMS compliance, quarterly/annual returns, audit representation.</div>
-                    </div>
-                </div>
-                <!-- Add more service cards similarly -->
-            </div>
-        </div>
-    </section>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
-    <!-- Contact CTA -->
-    <section id="contact" class="py-24 bg-gradient-to-r from-gold-400 to-amber-500 text-navy-900">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Finances?</h2>
-            <p class="text-xl mb-12 opacity-90">Nairobi Office: +254 700 123 456 | info@hellenassociates.co.ke</p>
-            <form class="max-w-md mx-auto space-y-4">
-                <input type="email" placeholder="Your Email" class="w-full p-4 rounded-xl text-navy-900">
-                <textarea placeholder="Tell us about your needs" class="w-full p-4 rounded-xl h-32 text-navy-900"></textarea>
-                <button type="submit" class="w-full bg-navy-900 text-gold-400 p-4 rounded-xl font-bold hover:bg-navy-800 transition">Get Free Consultation</button>
-            </form>
-        </div>
-    </section>
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    </div>
+  </header>
 
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Smart Tax & Accounting Solutions for Growing Businesses</h1>
+        <p>
+          Hellen & Associates Company provides corporate tax filing, payroll support, accounting support,
+          eTIMS assistance, business registration services, and money market investment advisory.
+        </p>
+
+        <div class="btn-row">
+          <a href="contact.html" class="btn primary">Book a Consultation</a>
+          <a href="services.html" class="btn outline">Explore Services</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="badge">Why Choose Us</span>
+        <h3>Compliance. Accuracy. Confidence.</h3>
+        <p>
+          We help individuals and companies stay compliant with tax obligations, reduce reporting stress,
+          and build stronger financial systems.
+        </p>
+        <br />
+        <p><b>✔ Fast Support</b></p>
+        <p><b>✔ Transparent Pricing</b></p>
+        <p><b>✔ Trusted Advisory</b></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Preview -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Core Services</h2>
+        <p>Professional financial solutions tailored for individuals, SMEs, and corporates.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <span class="badge">Tax</span>
+          <h3>Corporate Tax Filing</h3>
+          <p>Annual returns, compliance checks, and timely submission with accurate reporting.</p>
+        </div>
+
+        <div class="card">
+          <span class="badge">Payroll</span>
+          <h3>Payroll Support</h3>
+          <p>PAYE, NSSF, NHIF, and payroll processing support with monthly reporting.</p>
+        </div>
+
+        <div class="card">
+          <span class="badge">Accounting</span>
+          <h3>Accounting Support</h3>
+          <p>Bookkeeping, reconciliations, financial statements, and advisory.</p>
+        </div>
+      </div>
+
+      <br><br>
+
+      <div class="grid-3">
+        <div class="card">
+          <span class="badge">eTIMS</span>
+          <h3>eTIMS Support</h3>
+          <p>Setup, onboarding, troubleshooting, and compliance guidance for eTIMS users.</p>
+        </div>
+
+        <div class="card">
+          <span class="badge">Business</span>
+          <h3>Business Registration</h3>
+          <p>Company registration, CR12 support, and business compliance guidance.</p>
+        </div>
+
+        <div class="card">
+          <span class="badge">Investment</span>
+          <h3>Money Market Advisory</h3>
+          <p>Guidance on money market funds, savings plans, and risk-based investing.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta">
+    <div class="container cta-wrap">
+      <div>
+        <h2>Need tax help urgently?</h2>
+        <p>Talk to us today and get professional support within hours.</p>
+      </div>
+      <div class="btn-row">
+        <a href="contact.html" class="btn primary">Get Started</a>
+        <a href="https://wa.me/254700000000" class="btn outline">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Hellen & Associates Company</h3>
+        <p>
+          Reliable financial services for tax compliance, payroll support, accounting, business registration,
+          and investment advisory.
+        </p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="about.html">About</a></p>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <p>Nairobi, Kenya</p>
+        <p>Email: info@hellenassociates.co.ke</p>
+        <p>Phone: +254 700 000 000</p>
+      </div>
+    </div>
+
+    <div class="container copy">
+      © <span id="year"></span> Hellen & Associates Company. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
