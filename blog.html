@@ -24,28 +24,94 @@
     </div>
   </header>
 
-  <section class="section">
+  <!-- Page Header -->
+  <section class="page-header" style="background: linear-gradient(135deg, var(--navy) 0%, #1d4ed8 100%); color: white; padding: 60px 0; text-align: center;">
     <div class="container">
-      <div class="section-title">
-        <h2>Insights & Updates</h2>
-        <p>Tax tips, business compliance updates, and financial best practices.</p>
+      <h1 style="font-size: 48px; margin-bottom: 16px;">Insights & Updates</h1>
+      <p style="font-size: 18px; max-width: 700px; margin: 0 auto; opacity: 0.9;">Expert advice on tax compliance, business growth, and financial best practices</p>
+    </div>
+  </section>
+
+  <!-- Blog Categories -->
+  <section class="section" style="padding: 40px 0 20px;">
+    <div class="container">
+      <div class="category-filter" id="categoryFilter">
+        <a href="#" data-category="all" class="active">All Posts</a>
+        <a href="#" data-category="tax">Tax</a>
+        <a href="#" data-category="payroll">Payroll</a>
+        <a href="#" data-category="accounting">Accounting</a>
+        <a href="#" data-category="etims">eTIMS</a>
+        <a href="#" data-category="business">Business</a>
+        <a href="#" data-category="investment">Investment</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Post -->
+  <section class="section" style="padding: 20px 0;">
+    <div class="container">
+      <div class="featured-post-card" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; overflow: hidden; border-radius: 20px; background: linear-gradient(135deg, var(--gold), var(--gold-dark));">
+        <div style="padding: 50px; color: var(--navy);">
+          <span class="badge" style="background: var(--navy); color: white; border: none;">Featured</span>
+          <h2 style="font-size: 32px; margin: 20px 0;">Understanding eTIMS: A Complete Guide for Kenyan Businesses</h2>
+          <p style="margin-bottom: 20px; opacity: 0.9; font-size: 16px;">Everything you need to know about eTIMS onboarding, compliance, and how to avoid common pitfalls. A comprehensive guide for businesses of all sizes.</p>
+          <div class="blog-meta" style="display: flex; gap: 15px; margin-bottom: 20px;">
+            <span>📅 March 15, 2024</span>
+            <span>⏱ 8 min read</span>
+            <span>👤 Hellen Wanjiku</span>
+          </div>
+          <a href="blog-posts/etims-complete-guide.html" class="btn primary" style="background: var(--navy); color: white;">Read Full Article →</a>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; min-height: 350px;">
+          <span style="font-size: 100px;">📊</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Grid -->
+  <section class="section" id="blogSection">
+    <div class="container">
+      
+      <!-- Blog Posts Container -->
+      <div class="blog-posts-container" id="blogPosts">
+        <!-- Posts will be loaded here via JavaScript -->
       </div>
 
-      <div class="grid-3">
-        <div class="card">
-          <h3>How to Prepare for Corporate Tax Filing</h3>
-          <p>Learn what documents you need and how to avoid common tax mistakes.</p>
+      <!-- Load More and Pagination -->
+      <div class="pagination-container" style="text-align: center; margin-top: 50px;">
+        <div id="loadMoreContainer">
+          <button id="loadMoreBtn" class="btn outline" style="border-color: var(--gold); color: var(--navy); margin-bottom: 20px;">Load More Articles ↓</button>
         </div>
+        
+        <!-- Page Indicator -->
+        <div id="pageIndicator" style="color: var(--muted); font-size: 14px; margin-top: 20px;">
+          Showing <span id="showingStart">1</span>-<span id="showingEnd">6</span> of <span id="totalPosts">24</span> articles
+        </div>
+        
+        <!-- Pagination Controls -->
+        <div class="pagination-controls" style="display: flex; gap: 10px; justify-content: center; margin-top: 20px; display: none;" id="paginationControls">
+          <button class="pagination-btn prev" disabled>← Previous</button>
+          <span class="page-numbers" style="display: flex; gap: 8px;">
+            <button class="page-num active">1</button>
+            <button class="page-num">2</button>
+            <button class="page-num">3</button>
+            <button class="page-num">4</button>
+          </span>
+          <button class="pagination-btn next">Next →</button>
+        </div>
+      </div>
 
-        <div class="card">
-          <h3>Payroll Compliance Checklist</h3>
-          <p>PAYE, NSSF, SHIF, and what every employer must submit monthly.</p>
-        </div>
-
-        <div class="card">
-          <h3>Understanding eTIMS for Businesses</h3>
-          <p>Everything you need to know about eTIMS onboarding and compliance.</p>
-        </div>
+      <!-- Newsletter Signup -->
+      <div class="card" style="background: linear-gradient(135deg, var(--navy) 0%, #1d4ed8 100%); color: white; text-align: center; padding: 50px; margin-top: 50px;">
+        <h2 style="color: white; font-size: 32px; margin-bottom: 16px;">📧 Subscribe to Our Newsletter</h2>
+        <p style="color: rgba(255,255,255,0.9); font-size: 18px; max-width: 600px; margin: 0 auto 30px;">Get the latest tax updates, compliance tips, and financial insights delivered to your inbox.</p>
+        
+        <form id="newsletterForm" style="max-width: 500px; margin: 0 auto; display: flex; gap: 12px;">
+          <input type="email" placeholder="Your email address" style="flex: 1; padding: 15px; border-radius: 30px; border: none;" required />
+          <button type="submit" class="btn primary" style="background: var(--gold); color: var(--navy); padding: 15px 30px; border-radius: 30px;">Subscribe</button>
+        </form>
+        <p style="color: rgba(255,255,255,0.7); font-size: 13px; margin-top: 15px;">We respect your privacy. Unsubscribe anytime.</p>
       </div>
 
     </div>
@@ -66,6 +132,7 @@
         <p><a href="index.html">Home</a></p>
         <p><a href="about.html">About</a></p>
         <p><a href="services.html">Services</a></p>
+        <p><a href="blog.html">Blog</a></p>
         <p><a href="contact.html">Contact</a></p>
       </div>
 
@@ -73,7 +140,7 @@
         <h3>Contact</h3>
         <p>Nairobi, Kenya</p>
         <p>Email: cpa6hellen@gmail.com</p>
-        <p>Phone: +254702401751</p>
+        <p>Phone: +254 702 401 751</p>
       </div>
     </div>
 
@@ -84,7 +151,539 @@
 
   <script src="script.js"></script>
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Blog data with detailed content
+    const blogPosts = [
+      // Tax Category (8 posts)
+      {
+        id: 1,
+        title: "How to Prepare for Corporate Tax Filing",
+        excerpt: "Learn what documents you need and how to avoid common tax mistakes that trigger KRA penalties. Includes a comprehensive checklist and deadline guide.",
+        date: "Mar 10, 2024",
+        readTime: "6 min read",
+        author: "James Mwangi",
+        category: "tax",
+        image: "📋",
+        fullContent: "blog-posts/corporate-tax-filing.html",
+        featured: false
+      },
+      {
+        id: 2,
+        title: "VAT Compliance: Common Mistakes to Avoid",
+        excerpt: "Understanding VAT returns, deadlines, and how to ensure your business stays compliant with KRA requirements.",
+        date: "Feb 28, 2024",
+        readTime: "5 min read",
+        author: "Hellen Wanjiku",
+        category: "tax",
+        image: "💰",
+        fullContent: "blog-posts/vat-compliance.html",
+        featured: false
+      },
+      {
+        id: 3,
+        title: "Tax Deductions Every Business Should Know",
+        excerpt: "Maximize your tax savings with these legitimate business expense deductions approved by KRA.",
+        date: "Feb 15, 2024",
+        readTime: "7 min read",
+        author: "David Kiprono",
+        category: "tax",
+        image: "📊",
+        fullContent: "blog-posts/tax-deductions.html",
+        featured: false
+      },
+      {
+        id: 4,
+        title: "Understanding Installment Tax for Businesses",
+        excerpt: "A complete guide to installment tax payments, due dates, and how to calculate your quarterly obligations.",
+        date: "Feb 5, 2024",
+        readTime: "5 min read",
+        author: "James Mwangi",
+        category: "tax",
+        image: "📅",
+        fullContent: "blog-posts/installment-tax.html",
+        featured: false
+      },
+      {
+        id: 5,
+        title: "Capital Gains Tax: What You Need to Know",
+        excerpt: "Guide to CGT on property and asset sales, including rates, exemptions, and filing requirements.",
+        date: "Jan 22, 2024",
+        readTime: "6 min read",
+        author: "Hellen Wanjiku",
+        category: "tax",
+        image: "🏠",
+        fullContent: "blog-posts/capital-gains-tax.html",
+        featured: false
+      },
+      {
+        id: 6,
+        title: "Rental Income Tax Guide for Landlords",
+        excerpt: "How to file and pay tax on rental income, allowable deductions, and compliance tips.",
+        date: "Jan 10, 2024",
+        readTime: "5 min read",
+        author: "Sarah Odhiambo",
+        category: "tax",
+        image: "🏢",
+        fullContent: "blog-posts/rental-income-tax.html",
+        featured: false
+      },
+      {
+        id: 7,
+        title: "Turnover Tax vs. Corporate Tax",
+        excerpt: "Which tax regime is right for your business? Compare rates, thresholds, and requirements.",
+        date: "Dec 18, 2023",
+        readTime: "4 min read",
+        author: "David Kiprono",
+        category: "tax",
+        image: "⚖️",
+        fullContent: "blog-posts/turnover-vs-corporate.html",
+        featured: false
+      },
+      {
+        id: 8,
+        title: "Tax Penalties and How to Avoid Them",
+        excerpt: "Common KRA penalties, how they're calculated, and strategies to stay penalty-free.",
+        date: "Dec 5, 2023",
+        readTime: "6 min read",
+        author: "James Mwangi",
+        category: "tax",
+        image: "⚠️",
+        fullContent: "blog-posts/tax-penalties.html",
+        featured: false
+      },
+
+      // Payroll Category (5 posts)
+      {
+        id: 9,
+        title: "Payroll Compliance Checklist",
+        excerpt: "PAYE, NSSF, SHIF, and what every employer must submit monthly to stay compliant with Kenyan labor laws.",
+        date: "Mar 5, 2024",
+        readTime: "7 min read",
+        author: "Sarah Odhiambo",
+        category: "payroll",
+        image: "📋",
+        fullContent: "blog-posts/payroll-compliance.html",
+        featured: false
+      },
+      {
+        id: 10,
+        title: "Understanding SHIF Deductions",
+        excerpt: "A complete guide to the new SHIF contributions, rates, and how they affect your payroll processing.",
+        date: "Feb 20, 2024",
+        readTime: "5 min read",
+        author: "Sarah Odhiambo",
+        category: "payroll",
+        image: "💊",
+        fullContent: "blog-posts/shif-guide.html",
+        featured: false
+      },
+      {
+        id: 11,
+        title: "NSSF Contributions Guide",
+        excerpt: "Everything employers need to know about NSSF contributions, tiers, and monthly remittances.",
+        date: "Feb 10, 2024",
+        readTime: "6 min read",
+        author: "David Kiprono",
+        category: "payroll",
+        image: "🏦",
+        fullContent: "blog-posts/nssf-guide.html",
+        featured: false
+      },
+      {
+        id: 12,
+        title: "PAYE Calculator and Guide",
+        excerpt: "How to calculate PAYE correctly, reliefs available, and common errors to avoid.",
+        date: "Jan 28, 2024",
+        readTime: "5 min read",
+        author: "Sarah Odhiambo",
+        category: "payroll",
+        image: "🧮",
+        fullContent: "blog-posts/paye-calculator.html",
+        featured: false
+      },
+      {
+        id: 13,
+        title: "Employee Benefits and Tax Implications",
+        excerpt: "Understanding taxable vs. non-taxable benefits for employees in Kenya.",
+        date: "Jan 15, 2024",
+        readTime: "6 min read",
+        author: "Hellen Wanjiku",
+        category: "payroll",
+        image: "🎁",
+        fullContent: "blog-posts/employee-benefits.html",
+        featured: false
+      },
+
+      // Accounting Category (4 posts)
+      {
+        id: 14,
+        title: "Bookkeeping Basics for Small Business",
+        excerpt: "Essential bookkeeping practices every small business owner should implement.",
+        date: "Mar 1, 2024",
+        readTime: "6 min read",
+        author: "David Kiprono",
+        category: "accounting",
+        image: "📚",
+        fullContent: "blog-posts/bookkeeping-basics.html",
+        featured: false
+      },
+      {
+        id: 15,
+        title: "Understanding Financial Statements",
+        excerpt: "How to read and interpret balance sheets, income statements, and cash flow reports.",
+        date: "Feb 18, 2024",
+        readTime: "8 min read",
+        author: "Hellen Wanjiku",
+        category: "accounting",
+        image: "📈",
+        fullContent: "blog-posts/financial-statements.html",
+        featured: false
+      },
+      {
+        id: 16,
+        title: "Cash Flow Management Strategies",
+        excerpt: "Tips to improve your business cash flow and avoid liquidity problems.",
+        date: "Feb 3, 2024",
+        readTime: "5 min read",
+        author: "David Kiprono",
+        category: "accounting",
+        image: "💵",
+        fullContent: "blog-posts/cash-flow.html",
+        featured: false
+      },
+      {
+        id: 17,
+        title: "Inventory Accounting Methods",
+        excerpt: "FIFO, LIFO, and weighted average: choosing the right method for your business.",
+        date: "Jan 20, 2024",
+        readTime: "5 min read",
+        author: "James Mwangi",
+        category: "accounting",
+        image: "📦",
+        fullContent: "blog-posts/inventory-accounting.html",
+        featured: false
+      },
+
+      // eTIMS Category (3 posts)
+      {
+        id: 18,
+        title: "Understanding eTIMS for Businesses",
+        excerpt: "Everything you need to know about eTIMS onboarding, integration, and daily compliance.",
+        date: "Mar 1, 2024",
+        readTime: "8 min read",
+        author: "James Mwangi",
+        category: "etims",
+        image: "💻",
+        fullContent: "blog-posts/etims-guide.html",
+        featured: true
+      },
+      {
+        id: 19,
+        title: "eTIMS Troubleshooting Guide",
+        excerpt: "Common eTIMS issues, error messages, and how to resolve them quickly to avoid business disruption.",
+        date: "Jan 15, 2024",
+        readTime: "6 min read",
+        author: "James Mwangi",
+        category: "etims",
+        image: "📱",
+        fullContent: "blog-posts/etims-troubleshooting.html",
+        featured: false
+      },
+      {
+        id: 20,
+        title: "eTIMS Integration with POS Systems",
+        excerpt: "How to integrate your existing POS with eTIMS for seamless invoicing and compliance.",
+        date: "Dec 10, 2023",
+        readTime: "7 min read",
+        author: "David Kiprono",
+        category: "etims",
+        image: "🖥️",
+        fullContent: "blog-posts/etims-pos-integration.html",
+        featured: false
+      },
+
+      // Business Category (2 posts)
+      {
+        id: 21,
+        title: "Guide to Business Registration in Kenya",
+        excerpt: "Step-by-step process for company registration, CR12, and KRA PIN acquisition.",
+        date: "Jan 25, 2024",
+        readTime: "7 min read",
+        author: "Hellen Wanjiku",
+        category: "business",
+        image: "📈",
+        fullContent: "blog-posts/business-registration.html",
+        featured: false
+      },
+      {
+        id: 22,
+        title: "Business Permits and Licenses Guide",
+        excerpt: "Overview of required permits for different business types in Kenya.",
+        date: "Dec 5, 2023",
+        readTime: "5 min read",
+        author: "Sarah Odhiambo",
+        category: "business",
+        image: "📄",
+        fullContent: "blog-posts/business-permits.html",
+        featured: false
+      },
+
+      // Investment Category (2 posts)
+      {
+        id: 23,
+        title: "Money Market Funds Explained",
+        excerpt: "Guide to money market investments, returns, and how to choose the right fund.",
+        date: "Feb 12, 2024",
+        readTime: "6 min read",
+        author: "David Kiprono",
+        category: "investment",
+        image: "💰",
+        fullContent: "blog-posts/money-market-funds.html",
+        featured: false
+      },
+      {
+        id: 24,
+        title: "Treasury Bills vs. Corporate Bonds",
+        excerpt: "Comparing low-risk investment options for individuals and businesses.",
+        date: "Jan 8, 2024",
+        readTime: "5 min read",
+        author: "James Mwangi",
+        category: "investment",
+        image: "📊",
+        fullContent: "blog-posts/tbills-vs-bonds.html",
+        featured: false
+      }
+    ];
+
+    // Pagination state
+    let currentPage = 1;
+    let postsPerPage = 6;
+    let currentCategory = 'all';
+    let filteredPosts = [...blogPosts];
+
+    // Function to filter posts by category
+    function filterPosts(category) {
+      if (category === 'all') {
+        filteredPosts = [...blogPosts];
+      } else {
+        filteredPosts = blogPosts.filter(post => post.category === category);
+      }
+      currentPage = 1;
+      displayPosts();
+      updatePaginationUI();
+      updateCategoryFilter(category);
+    }
+
+    // Function to display posts
+    function displayPosts() {
+      const container = document.getElementById('blogPosts');
+      const start = (currentPage - 1) * postsPerPage;
+      const end = start + postsPerPage;
+      const postsToShow = filteredPosts.slice(start, end);
+      
+      let html = '';
+      
+      // Group posts by category for better organization
+      if (currentCategory === 'all') {
+        // For 'all', group by category
+        const groupedPosts = {};
+        postsToShow.forEach(post => {
+          if (!groupedPosts[post.category]) {
+            groupedPosts[post.category] = [];
+          }
+          groupedPosts[post.category].push(post);
+        });
+        
+        for (const [category, posts] of Object.entries(groupedPosts)) {
+          html += `<div class="service-category"><h2>${getCategoryIcon(category)} ${getCategoryName(category)}</h2><div class="grid-3">`;
+          posts.forEach(post => {
+            html += generatePostHTML(post);
+          });
+          html += `</div></div>`;
+        }
+      } else {
+        // For specific category, just show grid
+        html = `<div class="grid-3">`;
+        postsToShow.forEach(post => {
+          html += generatePostHTML(post);
+        });
+        html += `</div>`;
+      }
+      
+      container.innerHTML = html;
+      
+      // Update showing indicators
+      document.getElementById('showingStart').textContent = start + 1;
+      document.getElementById('showingEnd').textContent = Math.min(end, filteredPosts.length);
+      document.getElementById('totalPosts').textContent = filteredPosts.length;
+      
+      // Show/hide load more button
+      const loadMoreBtn = document.getElementById('loadMoreBtn');
+      if (end >= filteredPosts.length) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = 'inline-block';
+      }
+    }
+
+    // Helper function to generate post HTML
+    function generatePostHTML(post) {
+      return `
+        <article class="card blog-card">
+          <div class="blog-image" style="background: #f0f9ff; height: 160px; display: flex; align-items: center; justify-content: center; border-radius: 12px 12px 0 0; margin: -24px -24px 20px -24px;">
+            <span style="font-size: 48px;">${post.image}</span>
+          </div>
+          <span class="badge">${getCategoryName(post.category)}</span>
+          <h3 style="font-size: 20px; margin: 10px 0;">${post.title}</h3>
+          <p style="color: var(--muted); margin-bottom: 15px;">${post.excerpt.substring(0, 100)}...</p>
+          <div class="blog-meta" style="display: flex; gap: 10px; color: var(--muted); font-size: 12px; margin-bottom: 15px;">
+            <span>📅 ${post.date}</span>
+            <span>⏱ ${post.readTime}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: var(--muted); font-size: 13px;">👤 ${post.author}</span>
+            <a href="${post.fullContent}" class="read-more-link" style="color: var(--gold); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
+              Read Full Article <span style="font-size: 18px;">→</span>
+            </a>
+          </div>
+        </article>
+      `;
+    }
+
+    // Helper function to get category name
+    function getCategoryName(category) {
+      const names = {
+        'tax': 'Tax',
+        'payroll': 'Payroll',
+        'accounting': 'Accounting',
+        'etims': 'eTIMS',
+        'business': 'Business',
+        'investment': 'Investment'
+      };
+      return names[category] || category;
+    }
+
+    // Helper function to get category icon
+    function getCategoryIcon(category) {
+      const icons = {
+        'tax': '💰',
+        'payroll': '👥',
+        'accounting': '📊',
+        'etims': '💻',
+        'business': '💼',
+        'investment': '📈'
+      };
+      return icons[category] || '📄';
+    }
+
+    // Load more function
+    function loadMore() {
+      if ((currentPage * postsPerPage) < filteredPosts.length) {
+        currentPage++;
+        displayPosts();
+      }
+    }
+
+    // Update category filter UI
+    function updateCategoryFilter(category) {
+      document.querySelectorAll('.category-filter a').forEach(link => {
+        if (link.dataset.category === category) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    // Update pagination UI
+    function updatePaginationUI() {
+      const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+      const paginationControls = document.getElementById('paginationControls');
+      const loadMoreContainer = document.getElementById('loadMoreContainer');
+      
+      if (totalPages > 1) {
+        if (totalPages <= 3) {
+          // Show pagination for 2-3 pages
+          paginationControls.style.display = 'flex';
+          loadMoreContainer.style.display = 'none';
+          updatePaginationNumbers(totalPages);
+        } else {
+          // Show load more for 4+ pages
+          paginationControls.style.display = 'none';
+          loadMoreContainer.style.display = 'block';
+        }
+      } else {
+        paginationControls.style.display = 'none';
+        loadMoreContainer.style.display = 'none';
+      }
+    }
+
+    // Update pagination numbers
+    function updatePaginationNumbers(totalPages) {
+      const pageNumbers = document.querySelector('.page-numbers');
+      let numbersHtml = '';
+      for (let i = 1; i <= totalPages; i++) {
+        numbersHtml += `<button class="page-num ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
+      }
+      pageNumbers.innerHTML = numbersHtml;
+      
+      // Update prev/next buttons
+      document.querySelector('.pagination-btn.prev').disabled = currentPage === 1;
+      document.querySelector('.pagination-btn.next').disabled = currentPage === totalPages;
+    }
+
+    // Initialize blog
+    document.addEventListener('DOMContentLoaded', function() {
+      displayPosts();
+      
+      // Category filter click handlers
+      document.querySelectorAll('.category-filter a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const category = this.dataset.category;
+          currentCategory = category;
+          filterPosts(category);
+        });
+      });
+      
+      // Load more button
+      document.getElementById('loadMoreBtn').addEventListener('click', loadMore);
+      
+      // Pagination controls
+      document.querySelector('.pagination-btn.prev').addEventListener('click', function() {
+        if (currentPage > 1) {
+          currentPage--;
+          displayPosts();
+          updatePaginationUI();
+        }
+      });
+      
+      document.querySelector('.pagination-btn.next').addEventListener('click', function() {
+        const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+        if (currentPage < totalPages) {
+          currentPage++;
+          displayPosts();
+          updatePaginationUI();
+        }
+      });
+      
+      document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('page-num')) {
+          currentPage = parseInt(e.target.dataset.page);
+          displayPosts();
+          updatePaginationUI();
+        }
+      });
+      
+      // Newsletter form
+      document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for subscribing! You will receive our next newsletter.');
+        this.reset();
+      });
+      
+      // Update copyright year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
   </script>
 </body>
 </html>
