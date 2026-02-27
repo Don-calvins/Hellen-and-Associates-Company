@@ -231,67 +231,41 @@
   </footer>
 
   <script src="script.js"></script>
-  <script>
-    // Form submission handler
-    function handleContactSubmit(event) {
-      event.preventDefault();
-      
-      // Get form values
-      const firstName = document.getElementById('firstName').value;
-      const lastName = document.getElementById('lastName').value;
-      const email = document.getElementById('email').value;
-      const phone = document.getElementById('phone').value;
-      const service = document.getElementById('service').value;
-      const message = document.getElementById('message').value;
-      
-      // Simple validation
-      if (!firstName || !lastName || !email || !service || !message) {
-        showFormStatus('Please fill in all required fields', 'error');
-        return false;
-      }
-      
-      if (!validateEmail(email)) {
-        showFormStatus('Please enter a valid email address', 'error');
-        return false;
-      }
-      
-      // Show success message (in production, this would send to server)
-      showFormStatus('Thank you! Your message has been sent. We\'ll respond within 24 hours.', 'success');
-      
-      // Optional: Reset form
-      // document.getElementById('contactForm').reset();
-      
-      return false;
+<!-- Add EmailJS script -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("YOUR_USER_ID");
+  })();
+</script>
+
+<!-- Update your form -->
+<form id="contactForm">
+  <!-- your form fields -->
+  <button type="submit" onclick="sendEmail(event)">Send Message</button>
+</form>
+
+<script>
+function sendEmail(e) {
+  e.preventDefault();
+  
+  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+    firstName: document.getElementById('firstName').value,
+    lastName: document.getElementById('lastName').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    service: document.getElementById('service').value,
+    message: document.getElementById('message').value
+  }).then(
+    function(response) {
+      alert('Message sent successfully!');
+      document.getElementById('contactForm').reset();
+    },
+    function(error) {
+      alert('Failed to send message. Please try again.');
     }
-    
-    function showFormStatus(message, type) {
-      const statusDiv = document.getElementById('formStatus');
-      statusDiv.style.display = 'block';
-      statusDiv.textContent = message;
-      
-      if (type === 'success') {
-        statusDiv.style.background = '#d4edda';
-        statusDiv.style.color = '#155724';
-        statusDiv.style.border = '1px solid #c3e6cb';
-      } else {
-        statusDiv.style.background = '#f8d7da';
-        statusDiv.style.color = '#721c24';
-        statusDiv.style.border = '1px solid #f5c6cb';
-      }
-      
-      // Hide after 5 seconds
-      setTimeout(() => {
-        statusDiv.style.display = 'none';
-      }, 5000);
-    }
-    
-    function validateEmail(email) {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(email);
-    }
-    
-    // Update copyright year
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  );
+}
+</script>
 </body>
 </html>
