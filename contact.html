@@ -5,6 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us | Hellen & Associates Company</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Form status styles */
+    .form-status {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      display: none;
+      text-align: center;
+      font-weight: 500;
+    }
+    
+    .form-status.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      display: block;
+    }
+    
+    .form-status.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+      display: block;
+    }
+    
+    .form-status.loading {
+      background: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+      display: block;
+    }
+    
+    .btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  </style>
 </head>
 <body>
 
@@ -85,7 +122,7 @@
 
           <h3 style="color: var(--navy); margin-bottom: 15px;">Connect With Us</h3>
           <div style="display: flex; gap: 15px;">
-            <a href="https://wa.me/254702401751" style="background: #25D366; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+            <a href="https://wa.me/254702401751" target="_blank" style="background: #25D366; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
               <span>📱</span> WhatsApp
             </a>
             <a href="mailto:cpa6hellen@gmail.com" style="background: var(--navy); color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
@@ -98,35 +135,35 @@
         <div class="card">
           <h3 style="color: var(--navy); margin-bottom: 25px;">Send us a Message</h3>
           
-          <form id="contactForm" onsubmit="return handleContactSubmit(event)">
+          <form id="contactForm">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-              <input type="text" placeholder="First Name" id="firstName" required />
-              <input type="text" placeholder="Last Name" id="lastName" required />
+              <input type="text" placeholder="First Name" id="firstName" name="firstName" required />
+              <input type="text" placeholder="Last Name" id="lastName" name="lastName" required />
             </div>
             
-            <input type="email" placeholder="Email Address" id="email" required />
+            <input type="email" placeholder="Email Address" id="email" name="email" required />
             
-            <input type="tel" placeholder="Phone Number (optional)" id="phone" />
+            <input type="tel" placeholder="Phone Number" id="phone" name="phone" required />
             
-            <select id="service" required>
+            <select id="service" name="service" required>
               <option value="">Select Service Interested In</option>
-              <option>Corporate Tax Filing</option>
-              <option>Payroll Support</option>
-              <option>Accounting Support</option>
-              <option>eTIMS Support</option>
-              <option>Business Registration</option>
-              <option>Money Market Advisory</option>
-              <option>Other</option>
+              <option value="Corporate Tax Filing">Corporate Tax Filing</option>
+              <option value="Payroll Support">Payroll Support</option>
+              <option value="Accounting Support">Accounting Support</option>
+              <option value="eTIMS Support">eTIMS Support</option>
+              <option value="Business Registration">Business Registration</option>
+              <option value="Money Market Advisory">Money Market Advisory</option>
+              <option value="Other">Other</option>
             </select>
             
-            <textarea placeholder="Your Message" id="message" rows="5" required></textarea>
+            <textarea placeholder="Your Message" id="message" name="message" rows="5" required></textarea>
             
             <div style="display: flex; gap: 12px; align-items: center;">
-              <button class="btn primary" type="submit" style="background: var(--gold); color: var(--navy);">Send Message</button>
+              <button class="btn primary" type="submit" id="submitBtn" style="background: var(--gold); color: var(--navy);">Send Message</button>
               <button class="btn outline" type="reset" style="border-color: var(--border); color: var(--muted);">Clear</button>
             </div>
 
-            <div id="formStatus" style="margin-top: 15px; padding: 10px; border-radius: 8px; display: none;"></div>
+            <div id="formStatus" class="form-status"></div>
           </form>
         </div>
       </div>
@@ -144,7 +181,7 @@
               <div style="font-size: 48px; margin-bottom: 16px;">📍</div>
               <p>Map will be embedded here</p>
               <p style="font-size: 14px;">Nairobi, Kenya</p>
-              <a href="#" style="color: var(--gold); margin-top: 10px; display: inline-block;">Get Directions →</a>
+              <a href="https://maps.google.com/?q=Nairobi,Kenya" target="_blank" style="color: var(--gold); margin-top: 10px; display: inline-block;">Get Directions →</a>
             </div>
           </div>
         </div>
@@ -194,7 +231,7 @@
       </div>
       <div class="btn-row">
         <a href="tel:+254702401751" class="btn primary" style="background: var(--gold); color: var(--navy);">Call Now</a>
-        <a href="https://wa.me/254702401751" class="btn outline" style="border-color: var(--gold); color: var(--navy); background: white;">WhatsApp Us</a>
+        <a href="https://wa.me/254702401751" target="_blank" class="btn outline" style="border-color: var(--gold); color: var(--navy); background: white;">WhatsApp Us</a>
       </div>
     </div>
   </section>
@@ -214,6 +251,7 @@
         <p><a href="index.html">Home</a></p>
         <p><a href="about.html">About</a></p>
         <p><a href="services.html">Services</a></p>
+        <p><a href="blog.html">Blog</a></p>
         <p><a href="contact.html">Contact</a></p>
       </div>
 
@@ -231,41 +269,88 @@
   </footer>
 
   <script src="script.js"></script>
-<!-- Add EmailJS script -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>
-  (function() {
-    emailjs.init("YOUR_USER_ID");
-  })();
-</script>
-
-<!-- Update your form -->
-<form id="contactForm">
-  <!-- your form fields -->
-  <button type="submit" onclick="sendEmail(event)">Send Message</button>
-</form>
-
-<script>
-function sendEmail(e) {
-  e.preventDefault();
   
-  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-    firstName: document.getElementById('firstName').value,
-    lastName: document.getElementById('lastName').value,
-    email: document.getElementById('email').value,
-    phone: document.getElementById('phone').value,
-    service: document.getElementById('service').value,
-    message: document.getElementById('message').value
-  }).then(
-    function(response) {
-      alert('Message sent successfully!');
-      document.getElementById('contactForm').reset();
-    },
-    function(error) {
-      alert('Failed to send message. Please try again.');
-    }
-  );
-}
-</script>
+  <!-- EmailJS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  
+  <script>
+    // Initialize EmailJS with your public key
+    (function() {
+      // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+      emailjs.init("YOUR_PUBLIC_KEY"); // Get this from EmailJS dashboard
+    })();
+
+    // Handle form submission
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Get form elements
+      const submitBtn = document.getElementById('submitBtn');
+      const formStatus = document.getElementById('formStatus');
+      const originalBtnText = submitBtn.textContent;
+      
+      // Validate phone number (simple validation)
+      const phone = document.getElementById('phone').value;
+      if (phone.length < 10) {
+        formStatus.className = 'form-status error';
+        formStatus.textContent = 'Please enter a valid phone number';
+        return;
+      }
+      
+      // Show loading state
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      formStatus.className = 'form-status loading';
+      formStatus.textContent = 'Sending your message...';
+      
+      // Prepare template parameters
+      const templateParams = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        service: document.getElementById('service').value,
+        message: document.getElementById('message').value,
+        to_email: 'cpa6hellen@gmail.com'
+      };
+      
+      // Replace these with your actual EmailJS credentials
+      // Get them from: https://dashboard.emailjs.com
+      const serviceId = 'YOUR_SERVICE_ID';      // Create a service in EmailJS
+      const templateId = 'YOUR_TEMPLATE_ID';    // Create an email template
+      
+      // Send email using EmailJS
+      emailjs.send(serviceId, templateId, templateParams)
+        .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+          
+          // Show success message
+          formStatus.className = 'form-status success';
+          formStatus.textContent = '✓ Thank you! Your message has been sent successfully. We\'ll respond within 24 hours.';
+          
+          // Reset form
+          document.getElementById('contactForm').reset();
+          
+          // Reset button
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        })
+        .catch(function(error) {
+          console.log('FAILED...', error);
+          
+          // Show error message
+          formStatus.className = 'form-status error';
+          formStatus.textContent = '❌ Failed to send message. Please try again or contact us directly via phone or WhatsApp.';
+          
+          // Reset button
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        });
+    });
+
+    // Update copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
 </body>
 </html>
