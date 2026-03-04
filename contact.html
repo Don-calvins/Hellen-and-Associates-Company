@@ -45,6 +45,56 @@
 </head>
 <body>
 
+<?php
+// Process the form when submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    // Get and clean form data
+    $firstName = strip_tags(trim($_POST['firstName']));
+    $lastName = strip_tags(trim($_POST['lastName']));
+    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+    $service = strip_tags(trim($_POST['service']));
+    $message = strip_tags(trim($_POST['message']));
+    
+    // Validate email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $formStatus = "error";
+        $formMessage = "Please enter a valid email address.";
+    } 
+    // Check required fields
+    elseif (empty($firstName) || empty($lastName) || empty($service) || empty($message)) {
+        $formStatus = "error";
+        $formMessage = "Please fill in all required fields.";
+    } 
+    else {
+        // Email details
+        $to = "info@hellenglobalconsultants.co.ke";
+        $subject = "New Contact Form: $service";
+        
+        // Email content
+        $emailContent = "You have received a new message from your website contact form.\n\n";
+        $emailContent .= "Name: $firstName $lastName\n";
+        $emailContent .= "Email: $email\n";
+        $emailContent .= "Service Interested In: $service\n\n";
+        $emailContent .= "Message:\n$message\n";
+        
+        // Email headers
+        $headers = "From: $email\r\n";
+        $headers .= "Reply-To: $email\r\n";
+        $headers .= "X-Mailer: PHP/" . phpversion();
+        
+        // Send email
+        if (mail($to, $subject, $emailContent, $headers)) {
+            $formStatus = "success";
+            $formMessage = "✓ Thank you! Your message has been sent successfully.";
+        } else {
+            $formStatus = "error";
+            $formMessage = "Oops! Something went wrong. Please try again or email us directly at info@hellenglobalconsultants.co.ke";
+        }
+    }
+}
+?>
+
   <header class="navbar">
     <div class="container nav-wrap">
       <a href="index.html" class="brand"> Hellen <span> Global Consultants </span></a>
@@ -53,7 +103,7 @@
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
-        <a href="contact.html" class="active">Contact</a>
+        <a href="contact.php" class="active">Contact</a>
       </nav>
 
       <div class="menu-btn" onclick="toggleMenu()">☰</div>
@@ -134,39 +184,38 @@
         <div class="card">
           <h3 style="color: var(--navy); margin-bottom: 25px;">Send us a Message</h3>
           
-            <form
-            action="https://formspree.io/f/mzdaqvdb"
-              method="POST">
+          <?php if (isset($formStatus)): ?>
+            <div class="form-status <?php echo $formStatus; ?>">
+              <?php echo $formMessage; ?>
+            </div>
+          <?php endif; ?>
+          
+          <form id="contactForm" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-              <input type="text" placeholder="First Name" id="firstName" name="firstName" required />
-              <input type="text" placeholder="Last Name" id="lastName" name="lastName" required />
+              <input type="text" placeholder="First Name" id="firstName" name="firstName" value="<?php echo isset($_POST['firstName']) ? htmlspecialchars($_POST['firstName']) : ''; ?>" required />
+              <input type="text" placeholder="Last Name" id="lastName" name="lastName" value="<?php echo isset($_POST['lastName']) ? htmlspecialchars($_POST['lastName']) : ''; ?>" required />
             </div>
             
-            <input type="email" placeholder="Email Address" id="email" name="email" required />
+            <input type="email" placeholder="Email Address" id="email" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" required />
             
             <select id="service" name="service" required>
               <option value="">Select Service Interested In</option>
-              <option value="Corporate Tax Filing">Corporate Tax Filing</option>
-              <option value="Payroll Support">Payroll Support</option>
-              <option value="Accounting Support">Accounting Support</option>
-              <option value="eTIMS Support">eTIMS Support</option>
-              <option value="Business Registration">Business Registration</option>
-              <option value="Money Market Advisory">Money Market Advisory</option>
-              <option value="Other">Other</option>
+              <option value="Corporate Tax Filing" <?php echo (isset($_POST['service']) && $_POST['service'] == 'Corporate Tax Filing') ? 'selected' : ''; ?>>Corporate Tax Filing</option>
+              <option value="Payroll Support" <?php echo (isset($_POST['service']) && $_POST['service'] == 'Payroll Support') ? 'selected' : ''; ?>>Payroll Support</option>
+              <option value="Accounting Support" <?php echo (isset($_POST['service']) && $_POST['service'] == 'Accounting Support') ? 'selected' : ''; ?>>Accounting Support</option>
+              <option value="eTIMS Support" <?php echo (isset($_POST['service']) && $_POST['service'] == 'eTIMS Support') ? 'selected' : ''; ?>>eTIMS Support</option>
+              <option value="Business Registration" <?php echo (isset($_POST['service']) && $_POST['service'] == 'Business Registration') ? 'selected' : ''; ?>>Business Registration</option>
+              <option value="Money Market Advisory" <?php echo (isset($_POST['service']) && $_POST['service'] == 'Money Market Advisory') ? 'selected' : ''; ?>>Money Market Advisory</option>
+              <option value="Other" <?php echo (isset($_POST['service']) && $_POST['service'] == 'Other') ? 'selected' : ''; ?>>Other</option>
             </select>
             
-            <textarea placeholder="Your Message" id="message" name="message" rows="5" required></textarea>
+            <textarea placeholder="Your Message" id="message" name="message" rows="5" required><?php echo isset($_POST['message']) ? htmlspecialchars($_POST['message']) : ''; ?></textarea>
             
             <div style="display: flex; gap: 12px; align-items: center;">
-
-            <form id="contactForm" action="https://formspree.io/f/mzdaqvdb" method="POST">
-  <div style="display: flex; gap: 12px; align-items: center;">
-    <button class="btn primary" type="submit" id="submitBtn" style="background: var(--gold); color: var(--navy);">Send Message</button>
-    <button class="btn outline" type="reset">Clear</button>
-  </div>
-
-  <div id="formStatus" class="form-status"></div>
-</form>
+              <button class="btn primary" type="submit" id="submitBtn" style="background: var(--gold); color: var(--navy);">Send Message</button>
+              <button class="btn outline" type="reset">Clear</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -232,7 +281,7 @@
         <p><a href="index.html">Home</a></p>
         <p><a href="about.html">About</a></p>
         <p><a href="services.html">Services</a></p>
-        <p><a href="contact.html">Contact</a></p>
+        <p><a href="contact.php">Contact</a></p>
       </div>
 
       <div>
@@ -250,60 +299,9 @@
 
   <script src="script.js"></script>
   
-  <!-- EmailJS Library -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  
   <script>
-   const form = document.getElementById("contactForm");
-const status = document.getElementById("formStatus");
-const submitBtn = document.getElementById("submitBtn");
-
-async function handleSubmit(event) {
-  event.preventDefault();
-  
-  // Show loading state
-  status.innerHTML = "Sending...";
-  status.className = "form-status loading";
-  submitBtn.disabled = true;
-
-  const data = new FormData(event.target);
-
-  fetch(event.target.action, {
-    method: form.method,
-    body: data,
-    headers: {
-        'Accept': 'application/json'
-    }
-  }).then(response => {
-    if (response.ok) {
-      // Success!
-      status.innerHTML = "✓ Success! We have received your message.";
-      status.className = "form-status success";
-      form.reset(); // Clear the form
-    } else {
-      // Server error
-      response.json().then(data => {
-        if (Object.hasOwn(data, 'errors')) {
-          status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-        } else {
-          status.innerHTML = "Oops! There was a problem submitting your form";
-        }
-      })
-      status.className = "form-status error";
-    }
-  }).catch(error => {
-    // Network error
-    status.innerHTML = "Oops! Network error. Please check your connection.";
-    status.className = "form-status error";
-  }).finally(() => {
-    submitBtn.disabled = false;
-  });
-}
-
-form.addEventListener("submit", handleSubmit);
-
-// Update copyright year
-document.getElementById('year').textContent = new Date().getFullYear();
+    // Update copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
 </body>
